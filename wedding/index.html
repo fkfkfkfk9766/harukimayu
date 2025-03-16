@@ -100,7 +100,15 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
             overflow-y: auto;
-            position: relative; /* 子要素を絶対配置するために relative を設定 */
+            position: relative;
+            padding-top: env(safe-area-inset-top); /* ← 追加 */
+        }
+        
+        /* iOS の安全領域を考慮 */
+        @supports (padding-top: env(safe-area-inset-top)) {
+            .image-container {
+                padding-top: env(safe-area-inset-top);
+            }
         }
 
         img {
