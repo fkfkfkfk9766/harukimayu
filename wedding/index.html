@@ -181,18 +181,21 @@
     </div>
 
     <!-- フェードアウト用スクリプト -->
-<script>
-window.onload = function() {
-    setTimeout(() => {
-        document.querySelector('.intro').style.opacity = '0'; // フェードアウト
-        setTimeout(() => {
-            document.querySelector('.intro').style.display = 'none';
-            document.querySelector('.main-content').style.display = 'block';
-        }, 2000); // フェードアウト完了後にメインコンテンツ表示
-    }, 3000); // 3秒後にフェードアウト開始
-};
-</script>
+    <script>
+    window.onload = function() {
+        // ウィンドウの高さを動的に設定
+        const imageContainer = document.querySelector('.image-container');
+        imageContainer.style.height = `${window.innerHeight - window.innerHeight * 0.1}px`; // 画面高さから少し引く（安全領域を考慮）
 
+        setTimeout(() => {
+            document.querySelector('.intro').style.opacity = '0'; // フェードアウト
+            setTimeout(() => {
+                document.querySelector('.intro').style.display = 'none';
+                document.querySelector('.main-content').style.display = 'block';
+            }, 2000); // フェードアウト完了後にメインコンテンツ表示
+        }, 3000); // 3秒後にフェードアウト開始
+    };
+    </script>
 
 </body>
 </html>
