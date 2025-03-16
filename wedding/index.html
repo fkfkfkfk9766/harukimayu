@@ -99,7 +99,7 @@
         }
 
         /* .image-container の高さを min-height に変更 */
-/*         .image-container {
+        .image-container {
             width: 100%;
             max-width: 430px;
             min-height: calc(100vh - env(safe-area-inset-top));  
@@ -109,19 +109,8 @@
             overflow-y: auto;
             position: relative;
         }
- */
 
-        .image-container {
-                        width: 100%;
-                        max-width: 430px;
-                        min-height: 100vh; /* 画面の高さに合わせる */
-                        background: white;
-                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-                        text-align: center;
-                        overflow-y: auto; /* スクロールバーが必要なときに表示 */
-                        position: relative;
-                        padding-top: env(safe-area-inset-top); /* iOSの安全領域を考慮 */
-                        }
+
 
         img {
             width: 100%;
