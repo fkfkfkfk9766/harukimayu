@@ -95,15 +95,14 @@
         .image-container {
             width: 100%;
             max-width: 430px;
-            height: calc(100vh - 0px);
+            height: 100dvh;  /* ← ここを修正 (100vh → 100dvh) */
             background: white;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
             overflow-y: auto;
             position: relative;
             padding-top: env(safe-area-inset-top); /* ← 追加 */
-        }
-        
+        }        
         /* iOS の安全領域を考慮 */
         @supports (padding-top: env(safe-area-inset-top)) {
             .image-container {
