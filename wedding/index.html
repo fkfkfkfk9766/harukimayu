@@ -26,11 +26,27 @@
             animation: fadeIn 2s ease-in-out;
         }
 
-        .intro h1 {
-            font-size: 2rem;
-            letter-spacing: 2px;
-            color: #fff;
-        }
+        /* イントロ画面のタイトルを適切に改行させる */
+.intro h1 {
+    font-size: 3rem;  /* 文字サイズはそのまま */
+    letter-spacing: 2px;
+    color: #fff;
+    text-align: center;
+    max-width: 90%; /* 幅を制限して自動改行を調整 */
+    margin: 0 auto;  /* 中央揃え */
+    line-height: 1.2; /* 行間を少し詰める */
+    display: block;
+    word-wrap: break-word; /* 長すぎる単語は適切に折り返す */
+}
+
+/* スマホサイズ用の調整 */
+@media screen and (max-width: 480px) {
+    .intro h1 {
+        display: block; /* ブロック要素として表示 */
+        text-align: center;
+        white-space: normal; /* 自動改行を許可 */
+    }
+}
 
         .intro p {
             font-size: 1.5rem;
@@ -121,12 +137,11 @@
 <body>
 
     <!-- イントロ画面 -->
-    <div class="intro">
-        <div class="intro-content">
-            <h1>Haruki & Mayu Wedding</h1>
-            <p>Welcome to our special day</p>
-        </div>
+<div class="intro">
+    <div class="intro-content">
+        <h1>Haruki & Mayu<br>After Party</h1>
     </div>
+</div>
 
     <!-- メインコンテンツ (前のサイト) -->
     <div class="main-content">
