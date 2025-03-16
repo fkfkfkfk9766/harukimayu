@@ -102,15 +102,13 @@
         .image-container {
             width: 100%;
             max-width: 430px;
-            min-height: calc(100vh - env(safe-area-inset-top));  
+            min-height: calc(100vh - env(safe-area-inset-top));  /* 100vh → safe-area を考慮した調整 */
             background: white;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
             overflow-y: auto;
             position: relative;
         }
-
-
 
         img {
             width: 100%;
@@ -194,6 +192,7 @@ window.onload = function() {
     }, 3000); // 3秒後にフェードアウト開始
 };
 </script>
+
 
 </body>
 </html>
