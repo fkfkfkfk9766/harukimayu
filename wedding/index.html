@@ -3,8 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>スマホデザインのプレビュー</title>
+    <title>Haruki & Mayu</title>
     <style>
+        /* ========== イントロ画面 (最初のウェディングイメージ) ========== */
+        .intro {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: url('picture/wedding-1854074_1280.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            z-index: 100;
+            transition: opacity 2s ease-in-out; /* なめらかにフェードアウト */
+        }
+
+        .intro-content {
+            font-family: "Georgia", serif;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .intro h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+
+        .intro p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            color: #f8f8f8;
+        }
+
+        /* フェードインアニメーション */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========== メインコンテンツ (通常のサイト) ========== */
+        .main-content {
+            display: none; /* イントロが消えた後に表示 */
+        }
+
         body {
             display: flex;
             justify-content: center;
@@ -18,37 +68,110 @@
         }
 
         h1 {
-            margin: 10px 0; /* 上下に少し余白を確保 */
+            margin: 10px 0;
             font-size: 18px;
         }
 
         .image-container {
             width: 100%;
             max-width: 430px;
-            height: calc(100vh - 0px); /* 画面全体 - h1 の高さ分 */
+            height: calc(100vh - 0px);
             background: white;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            overflow-y: auto; /* 画像が多い場合スクロールできるように */
+            overflow-y: auto;
+            position: relative; /* 子要素を絶対配置するために relative を設定 */
         }
 
         img {
             width: 100%;
             height: auto;
-            display: block; /* 余計な隙間をなくす */
-            margin: 0; /* 画像間の余白をなくす */
-            padding: 0; /* 画像間の余白をなくす */
+            display: block;
+            margin: 0;
+            padding: 0;
         }
+
+        /* 4つ目の画像を囲むコンテナ */
+        .image-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        /* Googleマップのスタイル */
+        .map-container {
+            position: absolute;
+            bottom: 170px;  /* 画像の下から10px */
+            right: 10px;   /* 画像の右から10px */
+             width: 230px;  /*マップの幅 */
+             height: 170px; /*マップの高さ */
+            border: 2px solid white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+
+
     </style>
 </head>
 <body>
-    <div class="image-container">
-        <img src="picture/二次会web招待状.zip - 1.jpg" alt="画像1">
-        <img src="picture/二次会web招待状.zip - 2.jpg" alt="画像2">
-        <img src="picture/二次会web招待状.zip - 3.jpg" alt="画像3">
-        <img src="picture/二次会web招待状.zip - 4.jpg" alt="画像1">
-        <img src="picture/二次会web招待状.zip - 5.jpg" alt="画像2">
-        <img src="picture/二次会web招待状.zip - 6.jpg" alt="画像3">
+
+    <!-- イントロ画面 -->
+    <div class="intro">
+        <div class="intro-content">
+            <h1>Haruki & Mayu Wedding</h1>
+            <p>Welcome to our special day</p>
+        </div>
     </div>
+
+    <!-- メインコンテンツ (前のサイト) -->
+    <div class="main-content">
+        <div class="image-container">
+            <div class="image-wrapper">
+                <img src="picture/二次会web招待状.zip - 1.jpg" alt="画像1">
+            </div>
+            <div class="image-wrapper">
+                <img src="picture/二次会web招待状.zip - 2.jpg" alt="画像2">
+            </div>
+            <div class="image-wrapper">
+                <img src="picture/二次会web招待状.zip - 3.jpg" alt="画像3">
+            </div>
+            <div class="image-wrapper">
+                <img src="picture/二次会web招待状.zip - 4.jpg" alt="画像4">
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093376!2d144.9630578153169!3d-37.81621817975179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f17fd3d1%3A0x5045675218ce6e0!2sFederation%20Square!5e0!3m2!1sen!2sjp!4v1710477317900"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+            <div class="image-wrapper">
+                <img src="picture/二次会web招待状.zip - 5.jpg" alt="画像5">
+            </div>
+            <div class="image-wrapper">
+                <img src="picture/二次会web招待状.zip - 6.jpg" alt="画像6">
+            </div>
+        </div>
+    </div>
+
+    <!-- フェードアウト用スクリプト -->
+    <script>
+        window.onload = function() {
+            setTimeout(() => {
+                document.querySelector('.intro').style.opacity = '0'; // フェードアウト
+                setTimeout(() => {
+                    document.querySelector('.intro').style.display = 'none';
+                    document.querySelector('.main-content').style.display = 'block';
+                }, 2000); // フェードアウト完了後にメインコンテンツ表示
+            }, 3000); // 3秒後にフェードアウト開始
+        };
+    </script>
+
 </body>
 </html>
