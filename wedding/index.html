@@ -26,9 +26,9 @@
             animation: fadeIn 2s ease-in-out;
         }
 
-        /* イントロ画面のタイトルを適切に改行させる */
+/* イントロ画面のタイトルを適切に表示 */
 .intro h1 {
-    font-size: 2rem;  /* 文字サイズはそのまま */
+    font-size: 3rem;  /* 文字サイズはそのまま */
     letter-spacing: 2px;
     color: #fff;
     text-align: center;
@@ -36,17 +36,21 @@
     margin: 0 auto;  /* 中央揃え */
     line-height: 1.2; /* 行間を少し詰める */
     display: block;
-    word-wrap: break-word; /* 長すぎる単語は適切に折り返す */
+    white-space: nowrap; /* 「Haruki & Mayu」を改行させない */
+}
+
+/* 「After Party」は改行される */
+.intro h1 br {
+    display: block; /* 強制改行 */
 }
 
 /* スマホサイズ用の調整 */
 @media screen and (max-width: 480px) {
     .intro h1 {
-        display: block; /* ブロック要素として表示 */
-        text-align: center;
-        white-space: normal; /* 自動改行を許可 */
+        font-size: 2.5rem; /* 少しだけ小さく調整（見やすくするため） */
     }
 }
+
 
         .intro p {
             font-size: 1.5rem;
