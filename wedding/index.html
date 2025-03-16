@@ -92,24 +92,19 @@
             font-size: 18px;
         }
 
-        .image-container {
-            width: 100%;
-            max-width: 430px;
-            height: 100vh;  /* ← ここを修正 (100vh → 100dvh) */
-            background: white;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            overflow-y: auto;
-            position: relative;
-            padding-top: env(safe-area-inset-top); /* ← 追加 */
-        }        
-        /* iOS の安全領域を考慮 */
-        @supports (padding-top: env(safe-area-inset-top)) {
-            .image-container {
-                padding-top: env(safe-area-inset-top);
-            }
-        }
 
+        /* .image-container の高さを min-height に変更 */
+.image-container {
+    width: 100%;
+    max-width: 430px;
+    min-height: 100vh;  /* 100vh → min-height: 100vh に変更 */
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow-y: auto;
+    position: relative;
+    padding-top: env(safe-area-inset-top); /* iOS の安全領域を考慮 */
+}
         img {
             width: 100%;
             height: auto;
@@ -195,6 +190,24 @@
             }, 3000); // 3秒後にフェードアウト開始
         };
     </script>
+
+
+    <script>
+    window.onload = function() {
+        // ウィンドウの高さを動的に設定
+        const imageContainer = document.querySelector('.image-container');
+        imageContainer.style.height = `${window.innerHeight}px`;
+
+        setTimeout(() => {
+            document.querySelector('.intro').style.opacity = '0'; // フェードアウト
+            setTimeout(() => {
+                document.querySelector('.intro').style.display = 'none';
+                document.querySelector('.main-content').style.display = 'block';
+            }, 2000); // フェードアウト完了後にメインコンテンツ表示
+        }, 3000); // 3秒後にフェードアウト開始
+    };
+</script>
+
 
 </body>
 </html>
