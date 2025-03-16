@@ -33,32 +33,30 @@
             }
         }
 
+        /* イントロ画面のタイトルを適切に表示 */
+        .intro h1 {
+            font-size: 3rem;  /* 文字サイズはそのまま */
+            letter-spacing: 2px;
+            color: #fff;
+            text-align: center;
+            max-width: 90%; /* 幅を制限して自動改行を調整 */
+            margin: 0 auto;  /* 中央揃え */
+            line-height: 1.2; /* 行間を少し詰める */
+            display: block;
+            white-space: nowrap; /* 「Haruki & Mayu」を改行させない */
+        }
 
-/* イントロ画面のタイトルを適切に表示 */
-.intro h1 {
-    font-size: 3rem;  /* 文字サイズはそのまま */
-    letter-spacing: 2px;
-    color: #fff;
-    text-align: center;
-    max-width: 90%; /* 幅を制限して自動改行を調整 */
-    margin: 0 auto;  /* 中央揃え */
-    line-height: 1.2; /* 行間を少し詰める */
-    display: block;
-    white-space: nowrap; /* 「Haruki & Mayu」を改行させない */
-}
+        /* 「After Party」は改行される */
+        .intro h1 br {
+            display: block; /* 強制改行 */
+        }
 
-/* 「After Party」は改行される */
-.intro h1 br {
-    display: block; /* 強制改行 */
-}
-
-/* スマホサイズ用の調整 */
-@media screen and (max-width: 480px) {
-    .intro h1 {
-        font-size: 2.3rem; /* 少しだけ小さく調整（見やすくするため） */
-    }
-}
-
+        /* スマホサイズ用の調整 */
+        @media screen and (max-width: 480px) {
+            .intro h1 {
+                font-size: 2.3rem; /* 少しだけ小さく調整（見やすくするため） */
+            }
+        }
 
         .intro p {
             font-size: 1.5rem;
@@ -100,19 +98,18 @@
             font-size: 18px;
         }
 
-
         /* .image-container の高さを min-height に変更 */
-.image-container {
-    width: 100%;
-    max-width: 430px;
-    min-height: 100vh;  /* 100vh → min-height: 100vh に変更 */
-    background: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    overflow-y: auto;
-    position: relative;
-    padding-top: env(safe-area-inset-top); /* iOS の安全領域を考慮 */
-}
+        .image-container {
+            width: 100%;
+            max-width: 430px;
+            min-height: calc(100vh - env(safe-area-inset-top));  /* 100vh → safe-area を考慮した調整 */
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            overflow-y: auto;
+            position: relative;
+        }
+
         img {
             width: 100%;
             height: auto;
@@ -132,8 +129,8 @@
             position: absolute;
             bottom: 170px;  /* 画像の下から10px */
             right: 10px;   /* 画像の右から10px */
-             width: 230px;  /*マップの幅 */
-             height: 170px; /*マップの高さ */
+            width: 230px;  /*マップの幅 */
+            height: 170px; /*マップの高さ */
             border: 2px solid white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
@@ -144,19 +141,17 @@
             border: none;
         }
 
-
-
     </style>
 </head>
 <body>
 
     <!-- イントロ画面 -->
-<div class="intro">
-    <div class="intro-content">
-        <h1>Haruki & Mayu<br>After Party</h1>
-        <p>Welcome to our special day</p>
+    <div class="intro">
+        <div class="intro-content">
+            <h1>Haruki & Mayu<br>After Party</h1>
+            <p>Welcome to our special day</p>
+        </div>
     </div>
-</div>
 
     <!-- メインコンテンツ (前のサイト) -->
     <div class="main-content">
@@ -173,8 +168,7 @@
             <div class="image-wrapper">
                 <img src="picture/二次会web招待状.zip - 4.jpg" alt="画像4">
                 <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.3420590568185!2d135.49608617659075!3d34.67131547293014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e711baaeab2b%3A0xeb94186207fed312!2zQWxvaGF177yI44Ki44Ot44OP44Km77yJ!5e0!3m2!1sja!2sjp!4v1742085016300!5m2!1sja!2sjp" width="230" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.3420590568185!2d135.49608617659075!3d34.67131547293014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e711baaeab2b%3A0xeb94186207fed312!2zQWxvaGF177yI44Ki44Ot44OP44Km77yJ!5e0!3m2!1sja!2sjp!4v1742085016300!5m2!1sja!2sjp" width="230" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <div class="image-wrapper">
@@ -187,22 +181,17 @@
     </div>
 
     <!-- フェードアウト用スクリプト -->
-    <script>
-    window.onload = function() {
-        // ウィンドウの高さを動的に設定
-        const imageContainer = document.querySelector('.image-container');
-        imageContainer.style.height = `${window.innerHeight}px`;
-
+<script>
+window.onload = function() {
+    setTimeout(() => {
+        document.querySelector('.intro').style.opacity = '0'; // フェードアウト
         setTimeout(() => {
-            document.querySelector('.intro').style.opacity = '0'; // フェードアウト
-            setTimeout(() => {
-                document.querySelector('.intro').style.display = 'none';
-                document.querySelector('.main-content').style.display = 'block';
-            }, 2000); // フェードアウト完了後にメインコンテンツ表示
-        }, 3000); // 3秒後にフェードアウト開始
-    };
+            document.querySelector('.intro').style.display = 'none';
+            document.querySelector('.main-content').style.display = 'block';
+        }, 2000); // フェードアウト完了後にメインコンテンツ表示
+    }, 3000); // 3秒後にフェードアウト開始
+};
 </script>
-
 
 </body>
 </html>
