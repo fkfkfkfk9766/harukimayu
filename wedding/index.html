@@ -150,6 +150,12 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
+/* 375px 以下の画面幅の場合の調整 */
+@media screen and (max-width: 375px) {
+    .map-container {
+        max-width: 150px;  /* 最大幅を150pxに設定 */
+    }
+}
 
 
         iframe {
