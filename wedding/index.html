@@ -183,9 +183,17 @@
     <!-- フェードアウト用スクリプト -->
     <script>
   // URLの末尾にスラッシュ (/) がある場合、それを削除
-        if (window.location.pathname.match(/\/$/)) {
-            window.history.replaceState(null, "", window.location.pathname.replace(/\/$/, "") + window.location.search + window.location.hash);
-        }
+        window.onload = function() {
+            // URLの末尾にスラッシュがある場合、それを削除する
+            if (window.location.pathname.endsWith("/")) {
+                window.history.replaceState(null, "", window.location.pathname.slice(0, -1) + window.location.search + window.location.hash);
+            }
+
+            // wedding へリダイレクト (末尾スラッシュなしで)
+            if (!window.location.pathname.endsWith("/wedding")) {
+                window.location.href = "/wedding";
+            }
+        };
     
         window.onload = function() {
             // ウィンドウの高さを動的に設定
