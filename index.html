@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=/wedding">
     <script>
-        window.location.href = "/wedding";  // スラッシュを追加して絶対パスにする
+        // URLの末尾にスラッシュがある場合、それを削除する
+        if (window.location.pathname.endsWith("/")) {
+            window.history.replaceState(null, "", window.location.pathname.slice(0, -1) + window.location.search + window.location.hash);
+        }
+
+        // wedding へリダイレクト
+        window.location.href = "/wedding";
     </script>
 </head>
 <body>
