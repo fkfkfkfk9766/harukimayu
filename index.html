@@ -2,7 +2,12 @@
 <html>
 <head>
     <script>
-        window.location.href = "wedding";
+        // 末尾の `/` がある場合は削除してリダイレクト
+        let targetUrl = "wedding";
+        if (window.location.pathname.endsWith('/')) {
+            targetUrl = targetUrl.slice(0, -1); // 末尾の `/` を削除
+        }
+        window.location.href = targetUrl;
     </script>
 </head>
 <body>
