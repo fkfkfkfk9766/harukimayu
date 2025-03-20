@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script>
-        // 末尾の `/` がある場合は削除してリダイレクト
-        let targetUrl = "wedding";
-        if (window.location.pathname.endsWith('/')) {
-            targetUrl = targetUrl.slice(0, -1); // 末尾の `/` を削除
-        }
-        window.location.href = targetUrl;
-    </script>
+<script>
+    if (window.location.pathname.endsWith('/')) {
+        window.history.replaceState(null, "", window.location.pathname.slice(0, -1) + window.location.search + window.location.hash);
+    }
+</script>
+
 </head>
 <body>
     <p>Redirecting to <a href="wedding">wedding</a>...</p>
